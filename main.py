@@ -89,9 +89,9 @@ def generate_code():
 
     #se connecter
     mydb = mysql.connector.connect(user='root', 
-                                    password='.1954432:ala/GA---!/395sméç',
+                                    password='',
                                     host='localhost',
-                                    database='code_verification'
+                                    database=''
     )
 
 
@@ -125,9 +125,9 @@ def generate_code():
 def delete_code(id):
     
         mydb = mysql.connector.connect(user='root', 
-                                        password='@!!//lsmh34lit28911..°°',
+                                        password='',
                                         host='localhost',
-                                        database='code_verification'
+                                        database=''
         )
 
 
