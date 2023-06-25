@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+
+#search{
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 45%;
+    background: #f1f1f1;
+    display: block;
+    margin-top: 65px;
+    border-radius: 25px;
+    margin-right: 25px;
+    margin-left: 18%;
+    
+}
+#search-button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; 
+    cursor: pointer;
+    margin-top: 60px;
+    border-radius: 25px;
+    
+}
+  
+#search-button:hover {
+    background: #74899a;
+}
+
+
+
+    
+
+h1{
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 65px;
+    text-align: center;
+}
+
+/**
+
+.top{
+    background-color: #298cdd;
+    height: 100px;
+    width: 1548px;
+    overflow: hidden;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+**/
+
+.information{
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 28%;
+
+}
+
