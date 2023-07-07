@@ -2,8 +2,8 @@ import os
 import random 
 import mysql.connector
 import time
-
-
+import argparse
+import datetime
 
 
 
@@ -15,7 +15,8 @@ print(
 """ 
 Made by Nashou
 06/06/23
-V.0.0.6
+V.0.0.9
+BETA VERSION 
 
  ██████╗  ██████╗ ██╗     ███████╗███╗   ███╗
 ██╔════╝ ██╔═══██╗██║     ██╔════╝████╗ ████║
@@ -33,29 +34,23 @@ global id_code
 
 
 
-
-
-
 def help_c():
     print("""List of Command:
         -   /help - open help command
         -   /generate_code - generate the code and an id to delete it
-        -   /delete_code - delete the generated code by the id (travail)
+        -   /delete_code - delete the generated code by the id (en cours de travail - pas utilisable)
         -   /exit - fermer la console
     """)
+
     time.sleep(2)
-
-
-    
 
 
 
 
 def settings():
     print("Made by Nashou")
-    print("V.0.0.4")
+    print("V.0.0.8")
     print("/help => command")
-
 
 
 
@@ -72,11 +67,17 @@ def generate_code():
     '`','~','!','@','#','$','%','^','&','*','(',')','_','-','+','=','{','[','}','}','|',':',';','"','<'
     ,',','>','.','?','/']
 
+
+
+    
+    
+
+
     code_simple = ""
     id_code = ""
 
     #création du code
-    for i in range(20):
+    for i in range(8):
         code_simple += random.choice(caractere)
         
     for k in range(5):
@@ -89,28 +90,29 @@ def generate_code():
 
     #se connecter
     mydb = mysql.connector.connect(user='root', 
-                                    password='',
+                                    password='.1954432:ala/GA---!/395sméç',
                                     host='localhost',
-                                    database=''
+                                    database='code',
+                                
     )
 
 
     mycursor = mydb.cursor()
     
-
-
+    e = datetime.datetime.now()
+    date = e.strftime("%Y-%m-%d %H:%M:%S")
 
     """
     #créer la table
-    mycursor.execute("CREATE TABLE code_and_id (code VARCHAR(255), id VARCHAR(255))")
+    mycursor.execute("CREATE TABLE code_and_id (code VARCHAR(255), id VARCHAR(255), date VARCHAR(255))")
     print("table bien crée")
     """
 
 
     
     #insérer les valeurs dans la table code_and_id
-    sql = "INSERT INTO code_and_id (code, id) VALUES (%s, %s)"
-    val = (code_simple, id_code)
+    sql = "INSERT INTO code_and_id(code, id, date) VALUES (%s, %s, %s)"
+    val = (code_simple, id_code, date)
     mycursor.execute(sql, val)
     print("valeur bien rajouté à la table code_and_id")
     mydb.commit()
@@ -120,41 +122,42 @@ def generate_code():
 
 
 
+"""
 
 
 def delete_code(id):
-    
         mydb = mysql.connector.connect(user='root', 
-                                        password='',
+                                        password='.1954432:ala/GA---!/395sméç',
                                         host='localhost',
-                                        database=''
+                                        database='code_verification'
         )
 
 
         mycursor = mydb.cursor()
 
-        delete_val = ("""DELETE FROM code_and_id code 
-                            WHERE id=%s;
-                            SELECT * FROM code_and_id;""")
-        value = (id)
+
+
+        delete_val = "DELETE FROM code_and_id code WHERE id= (id);" "VALUES (%s)"
+
+        value = id
         mycursor.execute(delete_val, value)
         mydb.commit()
-        return("Value deleted.")
+        print("Value deleted.")
 
         mydb.close()
     
-
+"""
 
 
 
     
-
+#menu of choices
 while True:
-    
+    e = datetime.datetime.now()
+    print (e.strftime("%Y-%m-%d %H:%M:%S"))
     print("/help for the command")
     choice = input("> ")
     
-
     if choice == '/settings':
         settings()
 
@@ -165,7 +168,9 @@ while True:
         help_c()
 
     elif choice == '/delete_code':
-        print('en travail')
-        delete_code(argument)
+        id_ = list(input("entrer l'id: "))
+        delete_code(id_)
+        #en cours de construction problème d'argument
+    
     elif choice == '/exit':
         exit()
