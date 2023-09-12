@@ -1,10 +1,10 @@
 <?php
 // Connexion à la base de données
-$servername = "3as.h.filess.io";
-$username = "code_tabledark";
-$password = "3f9c270914e550202c5ac23668085b62c639cc71";
-$dbname = "code_tabledark";
-$port = 3307;
+$servername = "servername";
+$username = "username";
+$password = "pswd";
+$dbname = "db";
+$port = port;
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 
