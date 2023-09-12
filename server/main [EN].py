@@ -78,8 +78,8 @@ def login():
             mydb = mysql.connector.connect(user=user, 
                                                 password=password,
                                                 host=host,
-                                                database="code_tabledark",
-                                                port = "3307"
+                                                database="db",
+                                                port = "port"
                                             
             )
             mycursor = mydb.cursor()
@@ -107,8 +107,8 @@ def login():
                 mydb = mysql.connector.connect(user=lst[0], 
                                                     password=lst[1],
                                                     host=lst[2],
-                                                    database="code_tabledark",
-                                                    port = "3307"
+                                                    database="db",
+                                                    port = "port"
                                                 
                 )
                 
@@ -214,8 +214,8 @@ def generate_code():
         mydb = mysql.connector.connect(user=lst[0], 
                                             password=lst[1],
                                             host=lst[2],
-                                            database="code_tabledark",
-                                            port = "3307"
+                                            database="db",
+                                            port = "port"
                                     
         )
         fi.close()
@@ -259,8 +259,8 @@ def delete_code(id_num):
         mydb = mysql.connector.connect(user=lst[0], 
                                         password=lst[1],
                                         host=lst[2],
-                                        database="code_tabledark",
-                                        port = "3307"
+                                        database="db",
+                                        port = "port"
                                     
         )
         mycursor = mydb.cursor()
@@ -300,8 +300,8 @@ def data():
         mydb = mysql.connector.connect(user=lst[0], 
                                         password=lst[1],
                                         host=lst[2],
-                                        database="code_tabledark",
-                                        port = "3307"
+                                        database="db",
+                                        port = "port"
                                     
         )
         mycursor = mydb.cursor()
